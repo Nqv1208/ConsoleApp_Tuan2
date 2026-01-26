@@ -1,0 +1,30 @@
+# Ignore build outputs
+bin/
+obj/
+
+# Ignore Visual Studio files
+.vs/
+.vscode/
+*.user
+*.suo
+*.sln.docstates
+
+# Ignore NuGet packages
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Ignore IDE settings
+.idea/
+*.swp
+*.swo
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore temporary files
+*.tmp
+*.log
+*.bak
