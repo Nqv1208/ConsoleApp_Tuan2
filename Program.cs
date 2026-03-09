@@ -1,8 +1,4 @@
-﻿
-
-using System.Collections;
-using ConsoleApp_Tuan2;
-
+﻿using ConsoleApp_Tuan2;
 public class Program
 {
     public static void Main(string[] args)
@@ -100,33 +96,89 @@ public class Program
         // arr.Add(2);
         // arr.Add(3);
 
-        MyGenericClass<int> myGeneric = new MyGenericClass<int>();
+        // MyGenericClass<int> myGeneric = new MyGenericClass<int>();
 
-        int[] numbers = { 5, 2, 8, 1, 9 };
+        // int[] numbers = { 5, 2, 8, 1, 9 };
 
-        MyGenericClass<int> intObj = new MyGenericClass<int>();
+        // MyGenericClass<int> intObj = new MyGenericClass<int>();
 
-        Console.WriteLine("Mang ban dau:");
-        intObj.display(numbers);
+        // Console.WriteLine("Mang ban dau:");
+        // intObj.display(numbers);
 
-        intObj.sort(numbers);
+        // intObj.sort(numbers);
 
-        Console.WriteLine("\nMang sau khi sap xep:");
-        intObj.display(numbers);
+        // Console.WriteLine("\nMang sau khi sap xep:");
+        // intObj.display(numbers);
 
-        string[] names = { "An", "Binh", "Cuong", "Dung" };
+        // string[] names = { "An", "Binh", "Cuong", "Dung" };
 
-        MyGenericClass<string> stringObj = new MyGenericClass<string>();
+        // MyGenericClass<string> stringObj = new MyGenericClass<string>();
 
-        Console.WriteLine("\nDanh sach ten ban dau:");
-        stringObj.display(names);
+        // Console.WriteLine("\nDanh sach ten ban dau:");
+        // stringObj.display(names);
 
-        stringObj.sort(names);
+        // stringObj.sort(names);
 
-        Console.WriteLine("\nDanh sach ten sau khi sap xep:");
-        stringObj.display(names);
+        // Console.WriteLine("\nDanh sach ten sau khi sap xep:");
+        // stringObj.display(names);
 
-        Console.ReadLine();
+        // Console.ReadLine();
+
+        List<SinhVien> sinhVienList = new List<SinhVien>();
+
+        sinhVienList.Add(new SinhVien("SV001", "Nguyen Van A", 20, "23T3", "Cong nghe so", false, 3.5));
+        sinhVienList.Add(new SinhVien("SV002", "Le Thi B", 21, "22T1", "Cong nghe so", true, 3.2));
+        sinhVienList.Add(new SinhVien("SV003", "Tran Van C", 19, "24DT1", "Dien - Dien tu", false, 3.0));
+        sinhVienList.Add(new SinhVien("SV004", "Pham Thi D", 22, "23T2", "Cong nghe so", true, 3.6));
+        sinhVienList.Add(new SinhVien("SV005", "Hoang Van E", 20, "23T3", "Cong nghe so", false, 3.1));
+        sinhVienList.Add(new SinhVien("SV006", "Nguyen Thi F", 21, "22T1", "Cong nghe so", true, 3.4));
+        sinhVienList.Add(new SinhVien("SV007", "Tran Van G", 20, "24DT1", "Dien - Dien tu", false, 2.9));
+        sinhVienList.Add(new SinhVien("SV008", "Le Thi H", 19, "23T2", "Cong nghe so", false, 3.3));
+        sinhVienList.Add(new SinhVien("SV009", "Pham Van I", 22, "23T3", "Cong nghe so", true, 3.7));
+        sinhVienList.Add(new SinhVien("SV010", "Hoang Thi J", 20, "22T1", "Cong nghe so", false, 3.0));
+
+        sinhVienList.Add(new SinhVien("SV011", "Nguyen Van K", 21, "24DT1", "Dien - Dien tu", true, 3.2));
+        sinhVienList.Add(new SinhVien("SV012", "Tran Thi L", 20, "23T2", "Cong nghe so", false, 3.4));
+        sinhVienList.Add(new SinhVien("SV013", "Le Van M", 19, "23T3", "Cong nghe so", false, 2.8));
+        sinhVienList.Add(new SinhVien("SV014", "Pham Thi N", 22, "22T1", "Cong nghe so", true, 3.6));
+        sinhVienList.Add(new SinhVien("SV015", "Hoang Van O", 21, "24DT1", "Dien - Dien tu", false, 3.1));
+        sinhVienList.Add(new SinhVien("SV016", "Nguyen Thi P", 20, "23T2", "Cong nghe so", false, 3.3));
+        sinhVienList.Add(new SinhVien("SV017", "Tran Van Q", 19, "23T3", "Cong nghe so", false, 2.7));
+        sinhVienList.Add(new SinhVien("SV018", "Le Thi R", 21, "22T1", "Cong nghe so", true, 3.5));
+        sinhVienList.Add(new SinhVien("SV019", "Pham Van S", 20, "24DT1", "Dien - Dien tu", false, 3.0));
+        sinhVienList.Add(new SinhVien("SV020", "Hoang Thi T", 22, "23T2", "Cong nghe so", true, 3.8));
+
+
+        // 1 Max tuoi vaf min tuoi
+        int maxTuoi = sinhVienList.Max(sv => sv.tuoi);
+        int minTuoi = sinhVienList.Min(sv => sv.tuoi);
+        Console.WriteLine("Tuổi lớn nhất: " + maxTuoi);
+        Console.WriteLine("Tuổi nhỏ nhất: " + minTuoi);
+        Console.WriteLine();
+
+        // 2 Kiem tra sinh vien thuoc khoa cong nghe so
+        foreach (var sv in sinhVienList)
+        {
+            if (sv.khoa == "Cong nghe so")
+            {
+                Console.WriteLine("Sinh viên thuộc khoa Công nghệ số: " + sv.hoTen);
+            }
+        }
+        Console.WriteLine();
+
+        // 3 Lay 10 sinh vien co diem cao nhat
+        foreach (var sv in sinhVienList.OrderByDescending(sv => sv.diemTB).Take(10))
+        {
+            Console.WriteLine("Sinh viên có điểm trung bình cao: " + sv.maSV + " - " + sv.hoTen + " - Điểm TB: " + sv.diemTB);
+        }
+        Console.WriteLine();
+
+        // 4 Bo qua sinh vien nam cuoi va lay ra toan bo sinh vien con lai
+        Console.WriteLine("Sinh viên không phải năm cuối:");
+        foreach (var sv in sinhVienList.Where(sv => !sv.namCuoi))
+        {
+            sv.InThongTin();
+        }
 
     }
 }
